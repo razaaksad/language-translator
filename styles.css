@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.translator {
+    margin: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+select, button {
+    padding: 5px;
+}
+
+.translation {
+    margin: 20px;
+}
+
+#outputText {
+    font-size: 18px;
+}
