@@ -4,24 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Translator</title>
-    <link rel="stylesheet" href="C:\Users\RTX\OneDrive\Desktop\interenship\styles.css>
-    <link rel="stylesheet" href="C:\Users\RTX\OneDrive\Desktop\interenship\task2.js>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 8px 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
     <h1>Language Translator</h1>
-    <div class="translator">
-        <textarea id="inputText" placeholder="Enter text to translate"></textarea>
-        <select id="targetLanguage">
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="de">German</option>
-            <!-- Add more languages as needed -->
-        </select>
-        <button id="translateButton">Translate</button>
-    </div>
-    <div class="translation">
-        <p id="outputText"></p>
-    </div>
-    <script src="script.js"></script>
+
+    <label for="selectLanguage">Select Language:</label>
+    <select id="selectLanguage">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="hn">hindi</option>
+        <!-- Add more language options as needed -->
+    </select>
+
+    <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
+
+    <button onclick="translateText()">Translate</button>
+
+    <div id="output"></div>
+
+    <script>
+        function translateText() {
+            const selectLanguage = document.getElementById('selectLanguage');
+            const selectedLanguage = selectLanguage.value;
+            
+            const inputText = document.getElementById('inputText').value;
+
+            
+            const translations = {
+                'en': 'English',
+                'es': 'Spanish',
+                'hn':'hindi',
+            };
+
+            const translatedText = translations[selectedLanguage] || 'Translation not available';
+
+            document.getElementById('output').innerHTML = `<p>Translated to ${translatedText}:</p><p>${inputText}</p>`;
+        }
+    </script>
 </body>
 </html>
