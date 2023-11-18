@@ -1,76 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">  
+    <title>Language Translator 
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Translator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
+    <!-- Font Awesome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="text-input">
+          <textarea spellcheck="false" class="from-text" placeholder="Enter text"></textarea>
+          <textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea>
+        </div>
+        <ul class="controls">
+          <li class="row from">
+            <div class="icons">
+              <i id="from" class="fas fa-volume-up"></i>
+              <i id="from" class="fas fa-copy"></i>
+            </div>
+            <select></select>
+          </li>
+          <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+          <li class="row to">
+            <select></select>
+            <div class="icons">
+              <i id="to" class="fas fa-volume-up"></i>
+              <i id="to" class="fas fa-copy"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button>Translate Text</button>
+    </div>
 
-        select {
-            font-size: 16px;
-            padding: 5px;
-        }
+    <script src="js/countries.js"></script>
+    <script src="js/script.js"></script>
 
-        textarea {
-            width: 100%;
-            height: 150px;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        button {
-            font-size: 18px;
-            padding: 8px 16px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
-        #output {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Language Translator</h1>
-
-    <label for="selectLanguage">Select Language:</label>
-    <select id="selectLanguage">
-        <option value="en">English</option>
-        <option value="es">Spanish</option>
-        <option value="hn">hindi</option>
-        <!-- Add more language options as needed -->
-    </select>
-
-    <textarea id="inputText" placeholder="Enter text to translate..."></textarea>
-
-    <button onclick="translateText()">Translate</button>
-
-    <div id="output"></div>
-
-    <script>
-        function translateText() {
-            const selectLanguage = document.getElementById('selectLanguage');
-            const selectedLanguage = selectLanguage.value;
-            
-            const inputText = document.getElementById('inputText').value;
-
-            
-            const translations = {
-                'en': 'English',
-                'es': 'Spanish',
-                'hn':'hindi',
-            };
-
-            const translatedText = translations[selectedLanguage] || 'Translation not available';
-
-            document.getElementById('output').innerHTML = `<p>Translated to ${translatedText}:</p><p>${inputText}</p>`;
-        }
-    </script>
-</body>
+  </body>
 </html>
